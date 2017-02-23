@@ -19,6 +19,10 @@ start = int(round(time.time() * 1000))
 
 #New algorithm - Using urllib2 and simplejson
 url = "http://www.omdbapi.com/?s=" + name + "&type=movie&y=" + year + "&r=json"
+
+#Debug End-Point
+#print url
+
 response = urllib2.urlopen(url)
 res = simplejson.load(response)
 
@@ -116,7 +120,7 @@ elif res["Response"] == 'True':
     print "Newest First"
     print
     for i in range(0, len(yearsorted)):
-        print namesorted[i] + " (" + yearsorted[i] + ") - " + imdbsorted[i]
+        print imdbsorted[i] + " - " + namesorted[i] + " (" + yearsorted[i] + ")"
     print
 
 #exception handling
